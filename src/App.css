@@ -7,7 +7,123 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+body a {
+  text-decoration: none;
+  color: black;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.header{
+  height: 80px;
+}
+
+.home-text {
+  padding: 10px 25px 25px 25px;
+}
+
+.home-text h2 {
+  margin-bottom: 0px;
+}
+
+.home-img {
+  height: 160px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.beer-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  align-items: center;
+  border-bottom: solid #cccccc 2px;
+  padding: 20px;
+}
+
+
+.beer-text {
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+
+}
+
+.beer-img {
+
+  width: 100px;
+  text-align: center;
+}
+
+.beer-img img {
+  height: 130px;
+}
+
+.beer-tagline {
+  font-size: 14pt;
+  color: gray;
+  word-wrap: break-word;
+}
+
+.beer-contributed {
+  font-size: 10pt;
+}
+
+
+.beer-detail-container {
+  padding: 20px 20px 40px 20px;
+}
+
+.beer-detail-img {
+  text-align: center;
+  padding: 20px;
+}
+
+.beer-detail-img img {
+  height: 200px;
+}
+
+.beer-detail-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.beer-detail-name {
+  font-size: 20pt;
+}
+
+.beer-detail-lvl {
+  font-size: 16pt;
+  color: #9c9c9c;
+}
+
+.beer-detail-tag {
+  color: #9c9c9c;
+  font-size: 12pt;
+}
+
+.beer-detail-brd {
+  font-size: 10pt;
+  font-weight: bold;
+
+}
+
+.beer-detail-desc {
+  margin-top: 20px;
+  font-size: 12pt;
+
+}
+
+.beer-detail-contr {
+  margin-top: 20px;
+  font-size: 10pt;
+  font-weight: bold;
+  color: #9c9c9c;
+
 }

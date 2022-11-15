@@ -11,7 +11,7 @@ function RandomBeersPage() {
 
     async function fetchBeer() {
       const response = await axios.get(
-        `https://ih-beers-api2.herokuapp.com/beers/random`
+        `https://ironbeer-api.fly.dev/random`
       );
 
       setBeer(response.data);

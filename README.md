@@ -34,7 +34,7 @@ $ npm start
 ## Introduction
 
 We will be building a React app so the API (server) needs to be built somewhere for us, right? You are completely right, it's deployed on _heroku_ and the root fo the API is:
-**`https://ih-beers-api2.herokuapp.com/beers`**.
+**`https://ironbeer-api.fly.dev`**.
 
 The available endpoints are the following:
 
@@ -97,7 +97,7 @@ On every view (except for the `home`), we should add a **header** with a `link` 
 
 ### Iteration 3 | List all the beers
 
-On the `/beers` route, we should display all the beers from the database. So, in this case, you need to "hit" the API's route `https://ih-beers-api2.herokuapp.com/beers` and the API will return an **array of beers**.
+On the `/beers` route, we should display all the beers from the database. So, in this case, you need to "hit" the API's route `https://ironbeer-api.fly.dev` and the API will return an **array of beers**.
 
 _Hint_: The array of beers is array of objects. We strongly advise you to **console log the response** from the API so you can see the structure of it.
 
@@ -137,7 +137,7 @@ Again, we **strongly recommend to console log the response from the API**.
 
 ### Iteration 5 | A random beer
 
-On the `/random-beer` route, we will render a single beer that will be retrieved from the database. The endpoint will do all the job for us, all we need to do is to call `https://ih-beers-api2.herokuapp.com/beers/random`. We should receive an object including all the info about a beer.
+On the `/random-beer` route, we will render a single beer that will be retrieved from the database. The endpoint will do all the job for us, all we need to do is to call `https://ironbeer-api.fly.dev/random`. We should receive an object including all the info about a beer.
 The same way we did with the **Single Beer** view, we should render the following fields:
 
 - `image`
@@ -166,7 +166,7 @@ Finally, on the `/new-beer` route (remember, this is you react route, you're dis
 - **contributed_by** - must be type _text_
 
 Why we pointed out the type? Well, since we already console log response from the API, we could notice that all the fields are strings but _attenuation_level_, which is number. Using our knowledge from module II, we can make conclusion that in the _beer model_ all the properties are type _String_ except _attenuation_level_, which is type _Number_.
-When you have built the form, you should do a `POST` request to `https://ih-beers-api2.herokuapp.com/beers/new`, passing all the data on the `body` object. If everything went ok, you would receive a **200** response from the server.
+When you have built the form, you should do a `POST` request to `https://ironbeer-api.fly.dev/new`, passing all the data on the `body` object. If everything went ok, you would receive a **200** response from the server.
 
 Notice that the fields on the `body` should have those specific **names** so the API can create a new beer.
 
@@ -180,7 +180,7 @@ Since we didn't cover how to upload images yet, don't worry about it now - the A
 
 ### Iteration 7 | Bonus | Filter the beers
 
-Yes! One endpoint left! On the `/beers` route, add an `input` where users can search for beers. Every time a new letter is typed, you should call to `https://ih-beers-api2.herokuapp.com/beers/search?q={query}` passing the value of the input in the `q` param.
+Yes! One endpoint left! On the `/beers` route, add an `input` where users can search for beers. Every time a new letter is typed, you should call to `https://ironbeer-api.fly.dev/search?q={query}` passing the value of the input in the `q` param.
 
 
 

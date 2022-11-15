@@ -1,10 +1,11 @@
-
+import Header from "../components/Header";
+import { useNavigate, useParams } from 'react-router-dom';
+import { useEffect, useState } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
-import { useState } from "react";
-import Header from "../components/Header";
 
-function NewBeerPage() {
+
+function EditBeerPage() {
 
   const emptyForm = {
     name: "",
@@ -16,13 +17,17 @@ function NewBeerPage() {
     contr: "",
   };
 
+  const navigate = useNavigate();
+
+  const { beerID } = useParams();
+
   const [form, setForm] = useState(emptyForm);
 
   function handleChange(e) {
-    
-    setForm({ ...form, [e.target.name]: e.target.value });
-  }
 
+    setForm({ ...form, [e.target.name]: e.target.value });
+
+  }
 
   async function handleSubmit(e) {
 
@@ -38,16 +43,46 @@ function NewBeerPage() {
       contributed_by: form.contr,
     };
 
-    await axios.post("https://ironbeer-api.fly.dev/new", newBeer);
-    // console.log(newBeer);
+    await axios.put(`https://ironbeer-api.fly.dev/edit/${beerID}`, newBeer);
 
-    setForm(emptyForm);
 
-    toast.success("Beer created successfully! :D");
+    toast.success("Beer updated successfully! :D");
+
+    navigate("/beers");
+
 
   }
 
+  useEffect(() => {
+
+    async function fetchBeer() {
+
+      const response = await axios.get(
+        `https://ironbeer-api.fly.dev/${beerID}`
+      );
+
+      const beerApi = response.data;
+
+      const beerForm = {
+        name: beerApi.name,
+        tagline: beerApi.tagline,
+        description: beerApi.description,
+        firstBrewed: beerApi.first_brewed,
+        brewersTips: beerApi.brewers_tips,
+        attLvl: beerApi.attenuation_level,
+        contr: beerApi.contributed_by,
+      };
+
+      setForm(beerForm);
+
+    }
+
+    fetchBeer();
+
+  }, [beerID]);
+
   return (
+
     <div>
 
       <Header />
@@ -82,7 +117,7 @@ function NewBeerPage() {
 
           <div className="mb-3">
             <label className="col-form-label-sm fw-bold" htmlFor="attLvl">Attenuation Level</label>
-            <input type="number" className="form-control form-control-sm" id="attLvl" name="attLvl" onChange={handleChange} value={form.attLvl} placeholder="insert a number" min="0"/>
+            <input type="number" className="form-control form-control-sm" id="attLvl" name="attLvl" onChange={handleChange} value={form.attLvl} placeholder="insert a number" min="0" />
           </div>
 
           <div className="mb-3">
@@ -91,13 +126,16 @@ function NewBeerPage() {
           </div>
 
           <div className="d-grid gap-2 pt-3 pb-3">
-            <button onClick={handleSubmit} className="btn btn-secondary">Add New Beer</button>
+            <button onClick={handleSubmit} className="btn btn-secondary">Save</button>
           </div>
 
         </div>
       </form>
+
     </div>
   )
+
 }
 
-export default NewBeerPage;
+export default EditBeerPage;
+

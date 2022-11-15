@@ -96,21 +96,27 @@ code {
 
 .beer-detail-name {
   font-size: 20pt;
+
 }
 
 .beer-detail-lvl {
   font-size: 16pt;
+  padding-top: 5px;
   color: #9c9c9c;
+
 }
 
 .beer-detail-tag {
   color: #9c9c9c;
   font-size: 12pt;
+
 }
 
 .beer-detail-brd {
   font-size: 10pt;
   font-weight: bold;
+  padding-top: 2px;
+
 
 }
 

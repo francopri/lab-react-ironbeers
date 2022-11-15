@@ -11,7 +11,7 @@ function AllBeersPage() {
     useEffect(() => {
         async function fetchBeers() {
             const response = await axios.get(
-                "https://ih-beers-api2.herokuapp.com/beers"
+                "https://ironbeer-api.fly.dev"
             );
             setBeers(response.data);
         }
@@ -38,7 +38,7 @@ function AllBeersPage() {
                         <div className="beer-container">
 
                             <div className="beer-img">
-                                <div><img src={beer.image_url} alt={beer.image_url} /></div>
+                                <div><img src={beer.image} alt={beer.image} /></div>
                             </div>
 
                             <div className="beer-text">

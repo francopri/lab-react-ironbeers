@@ -1,5 +1,5 @@
 
-function BeerDetails({beer}) {
+function BeerDetails({ beer }) {
 
   return (
 
@@ -7,7 +7,7 @@ function BeerDetails({beer}) {
 
       <div className="beer-detail-container">
 
-        <div className="beer-detail-img"><img src={beer.image_url} alt={beer.tagline} /></div>
+        <div className="beer-detail-img"><img src={beer.image} alt={beer.tagline} /></div>
 
         <div className="beer-detail-row">
           <div className="beer-detail-name">{beer.name}</div>
@@ -23,6 +23,7 @@ function BeerDetails({beer}) {
         <div className="beer-detail-contr">{beer.contributed_by}</div>
 
       </div>
+
     </div>
 
   )
